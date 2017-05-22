@@ -1,0 +1,124 @@
+{%  set randomId = random() %}
+
+<style type="text/css">
+    {% if article_background_color or image_id %}
+        .at-ts-{{ randomId }} {
+            {% if article_background_color %}background-color: #{{ article_background_color }};{% endif %}
+            {% if image_id %}background-image: url({{ getDocumentURL(image_id, {width: 768, height: 1800, zoom: true, public: true})|raw }});{% endif %}
+            background-size: cover;
+        }
+    {% endif -%}
+    {%- if image_id %}
+        @media (min-width: 768px) {
+            .at-ts-{{ randomId }} {
+                {% if image_id %}background-image: url({{ getDocumentURL(image_id, {width: 1280, public: true})|raw }});{% endif %}
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .at-ts-{{ randomId }} {
+                {% if image_id %}background-image: url({{ getDocumentURL(image_id, {width: 1920, public: true})|raw }});{% endif %}
+            }
+        }
+    {% endif -%}
+    {%- if background_fixed %}
+        .no-touch .at-ts-{{ randomId }} {
+            background-attachment: fixed;
+        }
+    {% endif -%}
+    {%- if title_color_1 or text_schadow_1 %}
+        .at-ts-{{ randomId }} h1 {
+            {% if title_color_1 %}color: #{{ title_color_1 }};{% endif %}
+            {% if text_schadow_1 %}text-shadow: 0 1px rgba({{ shadow_color_1 }});{% endif %}
+        }
+    {% endif -%}
+    {%- if title_color_1 %}
+        .at-ts-{{ randomId }} .at-ts-content-wrapper > h2 {
+            color: #{{ title_color_1 }};
+        }
+    {% endif -%}
+    {%- if sub_title_color_1 %}
+        .at-ts-{{ randomId }} h2,
+        .at-ts-{{ randomId }} h3,
+        .at-ts-{{ randomId }} h4,
+        .at-ts-{{ randomId }} h5,
+        .at-ts-{{ randomId }} h6 {
+            color: #{{ sub_title_color_1 }};
+        }
+    {% endif -%}
+    {%- if text_color_1 %}
+        .at-ts-{{ randomId }} .at-ts-text {
+            color: #{{ text_color_1 }};
+        }
+    {% endif -%}
+    {%- if text_color_1 or line_seperator_color or text_schadow_1 %}
+        .at-ts-{{ randomId }} .at-ts-content {
+            {% if text_color_1 %}color: #{{ text_color_1 }};{% endif %}
+            {% if line_seperator_color %}border-right-color: #{{ line_seperator_color }};{% endif %}
+            {% if text_schadow_1 %}text-shadow: 0 1px rgba({{ shadow_color_1 }});{% endif %}
+        }
+    {% endif -%}
+    {%- if link_text_color_1 %}
+        .at-ts-{{ randomId }} .at-ts-content a {
+            color: #{{ link_text_color_1 }};
+        }
+    {% endif -%}
+    {%- if link_text_color_hover_1 %}
+        .at-ts-{{ randomId }} .at-ts-content a:hover {
+            color: #{{ link_text_color_hover_1 }};
+        }
+    {% endif -%}
+    {%- if title_color_2 %}
+        .at-ts-{{ randomId }} .at-ts-sidebar h2,
+        .at-ts-{{ randomId }} .at-ts-sidebar h3,
+        .at-ts-{{ randomId }} .at-ts-sidebar h4,
+        .at-ts-{{ randomId }} .at-ts-sidebar h5,
+        .at-ts-{{ randomId }} .at-ts-sidebar h6 {
+            color: #{{ title_color_2 }};
+        }
+    {% endif -%}
+    {%- if text_color_2 %}
+        .at-ts-{{ randomId }} .at-ts-sidebar .at-ts-text {
+            color: #{{ text_color_2 }};
+        }
+    {% endif -%}
+    {%- if link_text_color_2 %}
+        .at-ts-{{ randomId }} .at-ts-sidebar a {
+            color: #{{ link_text_color_2 }};
+        }
+    {% endif -%}
+    {%- if link_text_color_hover_2 %}
+        .at-ts-{{ randomId }} .at-ts-sidebar a:hover {
+            color: #{{ link_text_color_hover_2 }};
+        }
+    {% endif %}
+</style>
+<div class="at-ts at-ts-{{ randomId }} at-one" {% if anchor %}id="{{ anchor }}"{% endif %}>
+    <div class="at-ts-content-wrapper {% if image_id %} at-ts-has-image{% endif %} at-content-wrapper{% if disableAnimation %} no-animation{% endif %}">
+        {% spaceless %} {# prevent inline-block whitespace #}
+        {% if h1_heading %}
+            <h1>{{ title_1 }}</h1>
+        {% else %}
+            <h2>{{ title_1 }}</h2>
+        {% endif %}
+        <div class="at-ts-wrapper">
+            <div class="at-ts-sidebar at-sidebar">
+                {% if title_2 %}<h3>{{ title_2 }}</h3>{% endif %}
+                {% if text_2 %}
+                    <div class="at-ts-text at-text">
+                        {{ text_2|raw }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="at-ts-content at-content">
+                {% if sub_title_1 %}<h3>{{ sub_title_1 }}</h3>{% endif %}
+                {% if text_1 %}
+                    <div class="at-ts-text at-text">
+                        {{ text_1|raw }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endspaceless %} {# prevent inline-block whitespace #}
+    </div>
+</div>

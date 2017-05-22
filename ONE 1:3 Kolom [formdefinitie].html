@@ -1,0 +1,172 @@
+<form>
+	<id>text-sidebar</id>
+	<children>
+        <single-text>
+            <id>anchor</id>
+            <title>Anker(link)</title>
+            <isRequired>false</isRequired>
+        </single-text>
+        <section>
+            <id>sidebar</id>
+            <title>Kolom 2</title>
+            <children>
+                <single-text>
+                    <id>title_2</id>
+                    <title>Titel</title>
+                </single-text>
+                <html-editor>
+                    <id>text_2</id>
+                    <title>Tekst</title>
+                    <isRequired>false</isRequired>
+                    <mode>basic</mode>
+                </html-editor>
+                <color-chooser>
+                    <id>title_color_2</id>
+                    <title>Titel</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>text_color_2</id>
+                    <title>Tekst</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>link_text_color_2</id>
+                    <title>Link</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>link_text_color_hover_2</id>
+                    <title>Link hover</title>
+                </color-chooser>
+                <checkbox>
+                    <id>text_schadow_2</id>
+                    <title>Toon tekst schaduw</title>
+                    <defaultValue>0</defaultValue>
+                </checkbox>
+                <color-chooser>
+                    <id>shadow_color_2</id>
+                    <title>Schaduw</title>
+                    <isRequired>true</isRequired>
+                    <defaultValue>0,0,0,0.7</defaultValue>
+                    <mode>rgba</mode>
+                </color-chooser>
+            </children>
+        </section>
+        <section>
+            <id>content</id>
+            <title>Kolom 2</title>
+            <children>
+                <single-text>
+                    <id>title_1</id>
+                    <title>Titel</title>
+                </single-text>
+                <checkbox>
+                    <id>h1_heading</id>
+                    <title>H1 koptekst</title>
+                    <defaultValue>0</defaultValue>
+                </checkbox>
+                <single-text>
+                    <id>sub_title_1</id>
+                    <title>Sub-titel</title>
+                    <isRequired>false</isRequired>
+                </single-text>
+                <html-editor>
+                    <id>text_1</id>
+                    <title>Tekst</title>
+                    <isRequired>false</isRequired>
+                    <mode>basic</mode>
+                </html-editor>
+                <color-chooser>
+                    <id>title_color_1</id>
+                    <title>Titel</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>sub_title_color_1</id>
+                    <title>Sub-titel</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>text_color_1</id>
+                    <title>Tekst</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>link_text_color_1</id>
+                    <title>Link</title>
+                </color-chooser>
+                <color-chooser>
+                    <id>link_text_color_hover_1</id>
+                    <title>Link hover</title>
+                </color-chooser>
+                <checkbox>
+                    <id>text_schadow_1</id>
+                    <title>Toon tekst schaduw</title>
+                    <defaultValue>0</defaultValue>
+                </checkbox>
+                <color-chooser>
+                    <id>shadow_color_1</id>
+                    <title>Schaduw</title>
+                    <isRequired>true</isRequired>
+                    <defaultValue>0,0,0,0.7</defaultValue>
+                    <mode>rgba</mode>
+                </color-chooser>
+                <color-chooser>
+                    <id>line_seperator_color</id>
+                    <title>Schijdingslijn kleur</title>
+                    <defaultValue>e6e6e6</defaultValue>
+                </color-chooser>
+            </children>
+        </section>
+		<section>
+            <id>layout</id>
+            <title>Layout</title>
+            <children>
+                <checkbox>
+                    <id>disableAnimation</id>
+                    <title>Animatie uitschakelen</title>
+                    <defaultValue>0</defaultValue>
+                </checkbox>
+            </children>
+        </section>
+        <section>
+            <id>background</id>
+            <title>Achtergrond</title>
+            <children>
+                <single-image>
+                    <id>image_id</id>
+                    <title>Selecteer een afbeelding...</title>
+                    <isRequired>false</isRequired>
+                </single-image>
+                <checkbox>
+                    <id>background_fixed</id>
+                    <title>Zet achtergrond vast</title>
+                    <defaultValue>0</defaultValue>
+                </checkbox>
+                <color-chooser>
+                    <id>article_background_color</id>
+                    <title>Artikel achtergrondkleur</title>
+                </color-chooser>
+            </children>
+        </section>
+	</children>
+    <conditions>
+        <visibility>
+            <target>h1_heading</target>
+            <calculate>title_1</calculate>
+            <formula>title_1 != ""</formula>
+        </visibility>
+
+        <visibility>
+            <target>shadow_color_1</target>
+            <calculate>text_schadow_1</calculate>
+            <formula>text_schadow_1 == 1</formula>
+        </visibility>
+        <visibility>
+            <target>shadow_color_2</target>
+            <calculate>text_schadow_2</calculate>
+            <formula>text_schadow_2 == 1</formula>
+        </visibility>
+
+        <visibility>
+            <target>background_fixed</target>
+            <calculate>image_id</calculate>
+            <formula>image_id != null</formula>
+        </visibility>
+    </conditions>
+</form>
