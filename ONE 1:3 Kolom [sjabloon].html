@@ -96,26 +96,26 @@
 <div class="at-ts at-ts-{{ randomId }} at-one" {% if anchor %}id="{{ anchor }}"{% endif %}>
     <div class="at-ts-content-wrapper {% if image_id %} at-ts-has-image{% endif %} at-content-wrapper{% if disableAnimation %} no-animation{% endif %}">
         {% spaceless %} {# prevent inline-block whitespace #}
-        {% if h1_heading %}
-            <h1>{{ title_1 }}</h1>
-        {% else %}
-            <h2>{{ title_1 }}</h2>
-        {% endif %}
+                {% if h1_heading %}
+                <h1>{{ title_1 }}</h1>
+                {% else %}
+                <h2>{{ title_1 }}</h2>
+                {% endif %}
         <div class="at-ts-wrapper">
-            <div class="at-ts-sidebar at-sidebar">
-                {% if title_2 %}<h3>{{ title_2 }}</h3>{% endif %}
+            <div class="at-ts-sidebar at-sidebar" style="padding-right: 3%;">
+                {% if title_2 %}<h3 style="margin-left: 0px; margin-right: 5%;">{{ title_2 }}</h3>{% endif %}
                 {% if text_2 %}
-                    <div class="at-ts-text at-text">
+                    <div class="at-ts-text at-text" style="margin-left: 0px; margin-right: 5%;">
                         {{ text_2|raw }}
                     </div>
                 {% endif %}
             </div>
-            <div class="at-ts-content at-content">
+            <div class="at-ts-content at-content" style="border-left-color: #e6e6e6; padding-left: 5%; border-left-width: 1px; border-left-style: solid; border-right: 0px; padding-right: 0px;">
                 {% if sub_title_1 %}<h3>{{ sub_title_1 }}</h3>{% endif %}
                 {% if text_1 %}
-                    <div class="at-ts-text at-text">
-                        {{ text_1|raw }}
-                    </div>
+                <div class="at-ts-text at-text">
+                    {{ text_1|raw }}
+                </div>
                 {% endif %}
             </div>
         </div>
